@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <button onclick="testFirebase()">Test Firebase</button>
+    <div id="status"></div>
+    
+    <script>
+        // Use YOUR actual Firebase config
+        const firebaseConfig = {
+                apiKey: "AIzaSyCLV8wTESyEeV3NNgNn_2rKihkaqePaybw",
+                authDomain: "custom-labs-ab739.firebaseapp.com",
+                projectId: "custom-labs-ab739",
+                storageBucket: "custom-labs-ab739.firebasestorage.app",
+                messagingSenderId: "793425250402",
+                appId: "1:793425250402:web:1522794b7397e0b4bda93b",
+                measurementId: "G-EJ7CBMNW6F"
+                        };
+        
+        function testFirebase() {
+            try {
+                const app = firebase.initializeApp(firebaseConfig);
+                document.getElementById('status').innerHTML = 
+                    '✅ Firebase loaded successfully!<br>' + 
+                    'Project: ' + firebaseConfig.projectId;
+                console.log('Firebase initialized:', app);
+            } catch (error) {
+                document.getElementById('status').innerHTML = 
+                    '❌ Firebase error: ' + error.message;
+                console.error('Firebase error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
